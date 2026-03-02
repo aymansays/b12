@@ -19,7 +19,7 @@ def generatePayload():
     email = "aymanfaisal7@gmail.com"
     resumeLink = "https://www.linkedin.com/in/ayman-faisal"
     repoLink = "https://github.com/aymansays/b12"
-    actionRunLink = f"https://link-to-github-or-another-forge.example.com/your/repository/actions/runs/{RUN_ID}"
+    actionRunLink = f"https://github.com/aymansays/b12/actions/runs/{RUN_ID}"
 
     payload = dict(sorted({
         "timestamp": timestamp,
