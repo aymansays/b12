@@ -30,11 +30,13 @@ def generatePayload():
         "action_run_link": actionRunLink
     }.items()))
 
+    # Canonicalize payload
     payload = json.dumps(payload).replace(", ", ",").replace(": ", ":")
 
     return payload
 
 def generateHeaders(key, payload):
+    # Create hex digest of payload using signing secret
     sha256 = hmac.new(key.encode(), payload.encode(), hashlib.sha256).hexdigest()
 
     headers = {
@@ -45,6 +47,7 @@ def generateHeaders(key, payload):
     return headers
 
 def main():
+    # Create POST request
     url = "https://b12.io/apply/submission"
 
     payload = generatePayload()
@@ -53,6 +56,7 @@ def main():
     headers = generateHeaders(SIGNING_SECRET, payload)
     print(headers)
 
+    # Send POST request
     response = requests.post(
         url,
         data=payload,
