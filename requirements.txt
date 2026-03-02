@@ -1,0 +1,11 @@
+certifi==2026.2.25
+charset-normalizer==3.4.4
+idna==3.11
+packaging==26.0
+python-certifi-win32==1.6.1
+requests==2.32.4
+setuptools-scm==9.2.2
+tomli==2.4.0
+typing-extensions==4.13.2
+urllib3==2.2.3
+wrapt==2.0.1
