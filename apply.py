@@ -5,20 +5,21 @@ import hashlib
 import json
 import os
 
-# Fetch signing secret key
+# Fetch signing secret key & github actions run id
 try:
     SIGNING_SECRET = os.environ["SIGNING_SECRET"]
+    RUN_ID = os.environ["RUN_ID"]
 except KeyError:
     SIGNING_SECRET = "hello-there-from-b12"
+    RUN_ID = 0
 
 def generatePayload():
-    # timestamp = datetime.datetime.now().isoformat()
-    timestamp = "2026-01-06T16:59:37.571Z"
-    name = "Your name"
-    email = "you@example.com"
-    resumeLink = "https://pdf-or-html-or-linkedin.example.com"
-    repoLink = "https://link-to-github-or-other-forge.example.com/your/repository"
-    actionRunLink = "https://link-to-github-or-another-forge.example.com/your/repository/actions/runs/run_id"
+    timestamp = datetime.datetime.now().isoformat()
+    name = "Ayman Faisal"
+    email = "aymanfaisal7@gmail.com"
+    resumeLink = "https://www.linkedin.com/in/ayman-faisal"
+    repoLink = "https://github.com/aymansays/b12"
+    actionRunLink = f"https://link-to-github-or-another-forge.example.com/your/repository/actions/runs/{RUN_ID}"
 
     payload = dict(sorted({
         "timestamp": timestamp,
