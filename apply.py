@@ -3,6 +3,13 @@ import datetime
 import hmac
 import hashlib
 import json
+import os
+
+# Fetch signing secret key
+try:
+    SIGNING_SECRET = os.environ["SIGNING_SECRET"]
+except KeyError:
+    SIGNING_SECRET = "hello-there-from-b12"
 
 def generatePayload():
     # timestamp = datetime.datetime.now().isoformat()
@@ -42,8 +49,7 @@ def main():
     payload = generatePayload()
     print(payload)
 
-    key = "hello-there-from-b12"
-    headers = generateHeaders(key, payload)
+    headers = generateHeaders(SIGNING_SECRET, payload)
     print(headers)
 
     response = requests.post(

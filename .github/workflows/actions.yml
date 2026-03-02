@@ -23,4 +23,6 @@ jobs:
           pip install -r requirements.txt
 
       - name: execute python script # run apply.py
+        env:
+          SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
         run: python apply.py
